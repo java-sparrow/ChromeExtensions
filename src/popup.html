@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Getting Started Extension's Popup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        body {
+            min-width: 200px;
+        }
+    </style>
+
+    <script src="lib/jquery-2.2.0.min.js"></script>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+    <!--上面那句话的意思是，js必须是外部文件，不能直接内嵌在html中-->
+    <script src="js/hello.js"></script>
+</head>
+
+<body>
+    <p>
+        Hello World~
+    </p>
+    <p>
+        世界，你好~
+    </p>
+</body>
+
+</html>

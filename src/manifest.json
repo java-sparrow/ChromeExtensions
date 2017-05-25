@@ -1,0 +1,33 @@
+/*
+    文件原始模版： http://open.chrome.360.cn/extension_dev/getstarted.html
+        但模版可能有点旧，并不兼容现有的Chrome版本（比如 manifest_version 和 popup 就有差异）。
+    所以请直接使用下面的改良版~
+*/
+{
+    // 必须的字段
+    "name": "扩展开发模版：Hello World",
+    "version": "1.0",
+    "manifest_version": 2,  // 值至少为2
+
+    // 建议提供的字段
+    "description": "这是一个 扩展开发模版，演示功能是：在浏览器上扩展栏里添加一个按钮，点击按钮会出现小气泡界面~",
+    // "icons": { },
+    // "default_locale": "en",
+
+    // 多选一，或者都不提供
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    // "page_action": { },
+    // "theme": { },
+    // "app": { },
+
+    // 根据需要提供
+    "permissions": [
+        // 匹配任何http协议的URL
+		"http://*/*",
+        // 匹配任何https协议的URL
+		"https://*/*"
+    ]
+}
