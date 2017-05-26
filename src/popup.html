@@ -2,11 +2,14 @@
 <html>
 
 <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>跨域frame通讯方案</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
         body {
             min-width: 200px;
+        }
+        .execute-status {
+            color: red;
         }
     </style>
 
@@ -19,16 +22,39 @@
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
     <!--上面那句话的意思是，js必须是外部文件，不能直接内嵌在html中-->
-    <script src="js/hello.js"></script>
+    <script src="js/popup.js"></script>
 </head>
 
 <body>
+    <h3>请先确保页面中的目标frame已存在。</h3>
+
+    <!--<iframe src="http://www.mmjpg.com/"></iframe>-->
+
+    请输入需要在子frame中执行的js：
+    <label>
+        <input type="checkbox" checked="checked" id="isInsertJquery">
+        需要jQuery2.2
+    </label>
+    <textarea name="" id="frameJsCode" cols="70" rows="5" placeholder="无需使用 function(){} 包裹。需要回传的数据，请在最后使用 return 语句返回">
+    return $("h1").text();
+    </textarea>
+    <!--<label>
+        额外的参数
+    </label>-->
+    
+    <hr>
+
+    请输入收到子frame数据后需要执行的js：
+    <textarea name="" id="processCode" cols="70" rows="5" placeholder="来自子frame的数据，已赋值给passData变量，可以直接使用该变量">
+    console.log("收到来自iframe的数据：", passData)
+    </textarea>
+
     <p>
-        Hello World~
+        <input type="button" value="确定" id="executeButton">
     </p>
-    <p>
-        世界，你好~
-    </p>
+    <div>
+        执行状态：<span class="execute-status" id="executeStatusText">未开始</span>
+    </div>
 </body>
 
 </html>

@@ -5,12 +5,12 @@
 */
 {
     // 必须的字段
-    "name": "扩展开发模版：Hello World",
+    "name": "跨域iframe通讯方案",
     "version": "1.0",
     "manifest_version": 2,  // 值至少为2
 
     // 建议提供的字段
-    "description": "这是一个 扩展开发模版，演示功能是：在浏览器上扩展栏里添加一个按钮，点击按钮会出现小气泡界面~",
+    "description": "这是一个 解决父子页面（如iframe）的跨域通讯的插件，让你可以获得控制当前页面的子页面的内容。",
     // "icons": { },
     // "default_locale": "en",
 
@@ -25,6 +25,8 @@
 
     // 根据需要提供
     "permissions": [
+        "tabs",
+
         // 匹配任何http协议的URL
 		"http://*/*",
         // 匹配任何https协议的URL
