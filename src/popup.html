@@ -2,11 +2,70 @@
 <html>
 
 <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>书签搜索</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
         body {
-            min-width: 200px;
+            width: 400px;
+            font-size: 14px;
+        }
+        ul, li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            /*width: 350px;*/
+            padding: 20px 10px;
+        }
+        .container input {
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+
+        .result-count {
+            color: red;
+        }
+        .search-result-list {
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 0 10px;
+            height: 300px;
+        }
+        .search-result-list li {
+            margin-bottom: 3px;
+        }
+        .search-result-list li a,
+        .search-result-list li div {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .search-result-list li:hover {
+            background-color: gainsboro;
+        }
+        .result-text {
+            display: block;
+            color: #64B5F6;
+        }
+        .result-text:hover {
+            color: #1976D2;
+        }
+        .result-detail {
+            visibility: hidden;
+            font-size: 12px;
+            color: gray;
+        }
+        .search-result-list li:hover .result-detail {
+            visibility: visible;
+        }
+
+        .search-result-list .no-result-text:hover {
+            background-color: transparent;
+        }
+        .search-key {
+            color: red;
         }
     </style>
 
@@ -19,16 +78,32 @@
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
     <!--上面那句话的意思是，js必须是外部文件，不能直接内嵌在html中-->
-    <script src="js/hello.js"></script>
+    <script src="js/searchInBookmarks.js"></script>
 </head>
 
 <body>
-    <p>
-        Hello World~
-    </p>
-    <p>
-        世界，你好~
-    </p>
+    <div class="container">
+        <label for="keyworkInput">
+            输入书签关键字
+        </label>
+
+        <input type="text" id="keyworkInput">
+
+        <input type="button" id="searchButton" value="搜索">
+    </div>
+
+    <div class="search-result-container" id="searchResultContainer" style="display: none;">
+        <h3>查询结果 共<span class="result-count" id="resultCount"></span>个</h3>
+
+        <ul class="search-result-list" id="searchResultList">
+            <!--<li>
+                <a href="#" class="result-text">demo text</a>
+                <div class="result-detail">
+                    <span class="result-url">http://www.demo-url.com</span>
+                </div>
+            </li>-->
+        </ul>
+    </div>
 </body>
 
 </html>

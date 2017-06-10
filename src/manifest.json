@@ -5,12 +5,12 @@
 */
 {
     // 必须的字段
-    "name": "扩展开发模版：Hello World",
+    "name": "书签搜索",
     "version": "1.0",
     "manifest_version": 2,  // 值至少为2
 
     // 建议提供的字段
-    "description": "这是一个 扩展开发模版，演示功能是：在浏览器上扩展栏里添加一个按钮，点击按钮会出现小气泡界面~",
+    "description": "这是一个书签搜索扩展，用来代替内置书签管理器搜索的扩展",
     // "icons": { },
     // "default_locale": "en",
 
@@ -28,6 +28,7 @@
         // 匹配任何http协议的URL
 		"http://*/*",
         // 匹配任何https协议的URL
-		"https://*/*"
+		"https://*/*",
+        "bookmarks"
     ]
 }
